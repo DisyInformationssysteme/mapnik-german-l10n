@@ -31,6 +31,8 @@ CREATE or REPLACE FUNCTION osml10n_street_abbrev(longname text, langcode text) R
  EXCEPTION
   WHEN undefined_function THEN
    return longname;
+  WHEN undefined_column THEN
+    return longname;
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
 
